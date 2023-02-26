@@ -27,9 +27,8 @@ while True:
         position,score = heuristic.best_position(piece,pit)
         play = Play(piece,position,score)
         plays.append(piece)
-    plays.sort(key=lambda x:x.score)
-    play = plays[0]
-    piece = play.getPiece()
+    plays.sort(key=lambda x:x.score)#sort by best score
+    piece = plays[0].getPiece()
     #put the block in the pit
     print(piece.getBlockIndex()+ " "+ ' '.join(play.getPosition()))
 
