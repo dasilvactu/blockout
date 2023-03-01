@@ -1,9 +1,9 @@
 import sys
 import math
-from heristic import Heuristic
-from pit import Pit
-from play import Play
-from piece import Piece
+from src import Heuristic
+from src import Pit
+from src import Play
+from src import Piece
 # game loop
 while True:
     inputs = input().split()
@@ -23,16 +23,11 @@ while True:
         depth = int(inputs[3])
         shape = inputs[4]
         piece = Piece(block_index, width, height,depth,shape)
-        #use the Heuristic to choose a position
-        position,score = heuristic.best_position(piece,pit)
-        play = Play(piece,position,score)
+        play =heuristic.best_position(piece,pit)
         plays.append(piece)
-    plays.sort(key=lambda x:x.score)#sort by best score
+    plays.sort(reverse=True, key=lambda x:x.score) #ordena pela jogada com o menor score
     piece = plays[0].getPiece()
     #put the block in the pit
     print(piece.getBlockIndex()+ " "+ ' '.join(play.getPosition()))
-
-    # Write an action using print
-    # To debug: print("Debug messages...", file=sys.stderr, flush=True)
 
     

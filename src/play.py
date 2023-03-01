@@ -9,3 +9,5 @@ class Play():
         return self.__position
     def getScore(self):
         return self.__score
+    def setScore(self,score):
+        self.__score = score
