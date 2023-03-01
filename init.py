@@ -24,7 +24,7 @@ while True:
         shape = inputs[4]
         piece = Piece(block_index, width, height,depth,shape)
         play =heuristic.best_position(piece,pit)
-        plays.append(piece)
+        plays.append(play)
     plays.sort(reverse=True, key=lambda x:x.score) #ordena pela jogada com o menor score
     piece = plays[0].getPiece()
     #put the block in the pit
